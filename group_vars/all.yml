@@ -23,15 +23,16 @@ default_roles:
   - nvm
   # - obsidian
   # - pwsh
-  - python
+  # - python
   # - ruby
   # - rust
-  - ssh
-  - sshfs
+  # - ssh
+  # - sshfs
   - terraform
-  - tldr
+  # - tldr
   - tmate
   - tmux
+  - tfenv
   # - zellij
   # - spotify
   # - zoxide
