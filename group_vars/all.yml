@@ -20,7 +20,7 @@ default_roles:
   # - neofetch
   # - neovim
   # - npm
-  # - nvm
+  - nvm
   # - obsidian
   # - pwsh
   # - python
