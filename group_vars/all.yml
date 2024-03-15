@@ -1,26 +1,26 @@
 default_roles:
   # - system
-  - 1password
+  # - 1password
   # - alacritty
   # - asciiquarium
   # - bash
   # - bat
-  - docker
+  # - docker
   # - flatpak
-  - fonts
-  - fzf
-  - git
-  - go
+  # - fonts
+  # - fzf
+  # - git
+  # - go
   # - helm
   # - k8s
   # - k9s
   # - lazygit
-  - lua
+  # - lua
   # - nala
-  - neofetch
-  - neovim
+  # - neofetch
+  # - neovim
   # - npm
-  - nvm
+  # - nvm
   # - obsidian
   # - pwsh
   # - python
@@ -28,10 +28,10 @@ default_roles:
   # - rust
   # - ssh
   # - sshfs
-  - terraform
+  # - terraform
   # - tldr
-  - tmate
-  - tmux
+  # - tmate
+  # - tmux
   # - tfenv
   # - zellij
   # - spotify
