@@ -19,7 +19,7 @@ default_roles:
   # - nala
   - neofetch
   - neovim
-  - npm
+  # - npm
   - nvm
   # - obsidian
   # - pwsh
