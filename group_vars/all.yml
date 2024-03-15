@@ -3,10 +3,10 @@ default_roles:
   - 1password
   # - alacritty
   # - asciiquarium
-  - bash
+  # - bash
   # - bat
   - docker
-  - flatpak
+  # - flatpak
   - fonts
   - fzf
   - git
@@ -27,6 +27,7 @@ default_roles:
   # - ruby
   # - rust
   - ssh
+  - macosx
   - sshfs
   - terraform
   - tldr

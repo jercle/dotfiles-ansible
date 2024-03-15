@@ -108,10 +108,10 @@ function macos_setup(){
   #   _task "Installing Python3 Pip"
   #   _cmd "brew install python-pip"
   # fi
-  # if ! pip3 list | grep watchdog >/dev/null 2>&1; then
-  #   _task "Installing Python3 Watchdog"
-  #   _cmd "pip3 install watchdog"
-  # fi
+  if ! pip3 list | grep watchdog >/dev/null 2>&1; then
+    _task "Installing Python3 Watchdog"
+    _cmd "pip3 install watchdog"
+  fi
 }
 
 
@@ -128,7 +128,7 @@ update_ansible_galaxy() {
 
 macos_setup
 
-if ! [[ -f "$SSH_DIR/authorized_keys" ]]; then
+if ! [[ -f "$SSH_DIR/authorized_keys_test" ]]; then
   _task "Generating SSH keys"
   _cmd "mkdir -p $SSH_DIR"
   _cmd "chmod 700 $SSH_DIR"
