@@ -1,0 +1,49 @@
+# source /etc/os-release
+# _task "Loading Setup for detected OS: $ID"
+# case $ID in
+#   ubuntu)
+#     ubuntu_setup
+#     ;;
+#   arch)
+#     arch_setup
+#     ;;
+#   *)
+#     _task "Unsupported OS"
+#     _cmd "echo 'Unsupported OS'"
+#     ;;
+# esac
+
+#   if ! [ -x "$(command -v ansible)" ]; then
+#     _task "Installing Homebrew"
+#     _cmd "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+#   fi
+#   else
+#   _task "Updating repository"
+#   _cmd "Ansoble not installed"
+# fi
+
+
+function get_os() {
+  if [ -f /etc/os-release ]; then
+    source /etc/os-release
+    _task "Loading Setup for detected OS: $ID"
+    case $ID in
+      ubuntu)
+        ubuntu_setup
+        ;;
+      arch)
+        arch_setup
+        ;;
+      *)
+        _task "Unsupported OS"
+        _cmd "echo 'Unsupported OS'"
+        ;;
+    esac
+    # echo $ID
+  elif [ -f /System/Library/CoreServices/SystemVersion.plist ]; then
+    _task "Loading Setup for detected OS: macos"
+    macos_setup
+  else
+    echo "Unsupported OS"
+  fi
+}

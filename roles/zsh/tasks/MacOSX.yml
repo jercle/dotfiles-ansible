@@ -1,0 +1,11 @@
+---
+- name: "ZSH | {{ ansible_distribution }} | Install"
+  community.general.homebrew:
+    name: zsh
+    state: present
+
+- name: "ZSH | {{ ansible_distribution }} | Set as Default Shell"
+  ansible.builtin.command: chsh -s $(which zsh)
+  args:
+    warn: no
+  become: true

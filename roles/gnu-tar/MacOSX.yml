@@ -1,0 +1,5 @@
+---
+- name: "GNU tar | {{ ansible_distribution }} | Install"
+  community.general.homebrew:
+    name: gnu-tar
+    state: present

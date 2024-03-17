@@ -1,0 +1,5 @@
+---
+- name: "Github CLI | {{ ansible_distribution }} | Install"
+  community.general.homebrew:
+    name: gh
+    state: present

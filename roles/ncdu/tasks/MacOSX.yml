@@ -1,0 +1,10 @@
+---
+# - name: "NCDU | Installing ncdu"
+#   ansible.builtin.apt:
+#     name: ncdu
+#     state: latest
+#   become: true
+- name: "NCDU | Installing ncdu"
+  community.general.homebrew:
+    name: neovim
+    state: present

@@ -11,6 +11,5 @@
   ansible.builtin.apt:
     name:
       - jq
-      - open-iscsi
     state: present
   become: true

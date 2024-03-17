@@ -1,0 +1,25 @@
+---
+- name: Download repo key
+  ansible.builtin.shell:
+    cmd: "curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc | gpg --dearmor --output {{ ngrok_keyring }}"
+    creates: "{{ ngrok_keyring }}"
+  tags:
+    - ngrok
+
+- name: Add apt repository
+  ansible.builtin.apt_repository:
+    repo: "deb [arch={{ ngrok_arch }} signed-by={{ ngrok_keyring }}] https://ngrok-agent.s3.amazonaws.com buster main"
+    filename: ngrok
+    update_cache: True
+    state: present
+  tags:
+    - ngrok
+
+- name: Install required packages
+  loop:
+    - ngrok
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  tags:
+    - ngrok

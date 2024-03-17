@@ -1,0 +1,64 @@
+-- local HEIGHT_PADDING = 4
+-- local WIDTH_PADDING = 10
+-- return {
+--     "JMarkin/nvim-tree.lua-float-preview",
+--     lazy = true,
+--     -- default
+--     opts = {
+--         -- wrap nvimtree commands
+--         wrap_nvimtree_commands = true,
+--         -- lines for scroll
+--         scroll_lines = 20,
+--         -- window config
+--         window = {
+--             style = "minimal",
+--             relative = "win",
+--             border = "rounded",
+--             wrap = false,
+--             trim_height = false,
+--             open_win_config = function()
+--                 local screen_w = vim.opt.columns:get()
+--                 local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
+--                 local window_w_f = (screen_w - WIDTH_PADDING * 2 - 1) / 2
+--                 local window_w = math.floor(window_w_f)
+--                 local window_h = screen_h - HEIGHT_PADDING * 2
+--                 local center_x = window_w_f + WIDTH_PADDING + 2
+--                 local center_y = ((vim.opt.lines:get() - window_h) / 2) - vim.opt.cmdheight:get()
+
+--                 return {
+--                     style = "minimal",
+--                     relative = "editor",
+--                     border = "single",
+--                     row = center_y,
+--                     col = center_x,
+--                     width = window_w,
+--                     height = window_h
+--                 }
+--             end
+--         },
+--         mapping = {
+--             -- scroll down float buffer
+--             down = {"<C-d>"},
+--             -- scroll up float buffer
+--             up = {"<C-e>", "<C-u>"},
+--             -- enable/disable float windows
+--             toggle = {"<C-x>"}
+--         },
+--         -- hooks if return false preview doesn't shown
+--         hooks = {
+--             pre_open = function(path)
+--                 -- if file > 5 MB or not text -> not preview
+--                 local size = require("float-preview.utils").get_size(path)
+--                 if type(size) ~= "number" then
+--                     return false
+--                 end
+--                 local is_text = require("float-preview.utils").is_text(path)
+--                 return size < 5 and is_text
+--             end,
+--             post_open = function(bufnr)
+--                 return true
+--             end
+--         }
+--     }
+-- }
+return {}

@@ -11,3 +11,9 @@
     depth: 1
     dest: "{{ ansible_user_dir }}/.fzf"
   notify: "Install FZF"
+
+- name: Install fzf (command-line fuzzy finder)
+  become: true
+  ansible.builtin.package:
+    state: present
+    name: fzf

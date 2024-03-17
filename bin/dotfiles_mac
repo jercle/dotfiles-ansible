@@ -126,7 +126,31 @@ update_ansible_galaxy() {
   _cmd "ansible-galaxy install -r $DOTFILES_DIR/requirements/common.yml $os_requirements"
 }
 
-macos_setup
+# macos_setup
+
+
+  if [ -f /etc/os-release ]; then
+    source /etc/os-release
+    _task "Loading Setup for detected OS: $ID"
+    case $ID in
+      ubuntu)
+        ubuntu_setup
+        ;;
+      arch)
+        arch_setup
+        ;;
+      *)
+        _task "Unsupported OS"
+        _cmd "echo 'Unsupported OS'"
+        ;;
+    esac
+    # echo $ID
+  elif [ -f /System/Library/CoreServices/SystemVersion.plist ]; then
+    _task "Loading Setup for detected OS: macos"
+    macos_setup
+  else
+    echo "Unsupported OS"
+  fi
 
 if ! [[ -f "$SSH_DIR/authorized_keys_test" ]]; then
   _task "Generating SSH keys"

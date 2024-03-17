@@ -1,0 +1,5 @@
+---
+- name: "Azure CLI | {{ ansible_distribution }} | Install"
+  community.general.homebrew:
+    name: azure-cli
+    state: present

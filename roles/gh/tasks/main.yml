@@ -1,4 +1,9 @@
 ---
-- name: Run Ubuntu Tasks
-  ansible.builtin.import_tasks: ubuntu.yml
-  when: ansible_os_family == 'Debian'
+- name: "Github CLI | Checking for Distribution Config: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+  register: githubcli_distribution_config
+
+- name: "Github CLI | Run Tasks: {{ ansible_distribution }}"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: githubcli_distribution_config.stat.exists
