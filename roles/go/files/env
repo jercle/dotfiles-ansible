@@ -1,0 +1,2 @@
+GONOSUMDB=off
+GOPRIVATE=github.com/jercle/*

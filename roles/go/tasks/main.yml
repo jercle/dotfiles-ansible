@@ -1,10 +1,18 @@
 ---
-- name: Run Ubuntu Tasks
+- name: Go | Run Ubuntu Tasks
   ansible.builtin.import_tasks: ubuntu.yml
   when: ansible_os_family == 'Debian'
 
-- name: Run MacOS Tasks
+- name: Go | Run MacOS Tasks
   ansible.builtin.import_tasks: MacOSX.yml
   when: ansible_os_family == 'Darwin'
 # - name: Install Packages
 #   import_tasks: packages.yml
+
+- name: Go | Copy env file
+  ansible.builtin.copy:
+    src: ./files/env
+    dest: ~/.config/go/env
+    owner: "{{ host_user }}"
+    group: "{{ host_user }}"
+    mode: '0644'
