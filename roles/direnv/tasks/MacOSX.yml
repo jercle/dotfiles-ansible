@@ -1,0 +1,5 @@
+---
+- name: "direnv | {{ ansible_distribution }} | Install"
+  community.general.homebrew:
+    name: direnv
+    state: present

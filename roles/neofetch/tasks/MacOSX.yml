@@ -1,0 +1,5 @@
+---
+- name: "Neofetch | {{ ansible_distribution }} | Install"
+  community.general.homebrew:
+    name: neofetch
+    state: present

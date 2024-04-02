@@ -6,10 +6,3 @@
     autoremove: true
     autoclean: true
   become: true
-
-- name: "System | {{ ansible_distribution }} | Install"
-  ansible.builtin.apt:
-    name:
-      - jq
-    state: present
-  become: true

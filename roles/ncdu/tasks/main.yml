@@ -7,14 +7,3 @@
 - name: "ncdu | Run Tasks: {{ ansible_distribution }}"
   ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
   when: ncdu_distribution_config.stat.exists
-# ---
-# - name: Run Ubuntu Tasks
-#   ansible.builtin.import_tasks: ubuntu.yml
-#   when: ansible_os_family == 'Debian'
-
-# - name: Run Macos Tasks
-#   ansible.builtin.import_tasks: macos.yml
-#   when: ansible_os_family == 'Darwin'
-# - name: "Neovim | Run Tasks: {{ ansible_distribution }}"
-#   ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
-#   when: neovim_distribution_config.stat.exists

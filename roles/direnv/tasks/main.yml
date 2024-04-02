@@ -1,5 +1,9 @@
 ---
-- name: "direnv | {{ ansible_distribution }} | Install"
-  community.general.homebrew:
-    name: direnv
-    state: present
+- name: "direnv | Checking for Distribution Config: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+  register: direnv_distribution_config
+
+- name: "direnv | Run Tasks: {{ ansible_distribution }}"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: direnv_distribution_config.stat.exists

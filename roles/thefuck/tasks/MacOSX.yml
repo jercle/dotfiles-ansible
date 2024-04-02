@@ -1,0 +1,5 @@
+---
+- name: "thefuck | {{ ansible_distribution }} | Install"
+  community.general.homebrew:
+    name: thefuck
+    state: present

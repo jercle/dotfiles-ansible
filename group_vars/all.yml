@@ -22,11 +22,11 @@ default_roles:
   - ncdu
   # - neofetch
   # - neovim
-  - ngrok
+  # - ngrok
   # - npm
-  - nvm
+  # - nvm
   # - obsidian
-  # - pwsh
+  - pwsh
   # - python
   - ripgrep
   # - ruby
@@ -34,12 +34,12 @@ default_roles:
   # - ssh
   # - sshfs
   # - terraform
+  - tfenv
   - tig
   - tldr
   # - tmate
   # - tmux
-  - tfenv
-  - trivy
+  # - trivy
   # - zellij
   # - spotify
   # - zoxide
