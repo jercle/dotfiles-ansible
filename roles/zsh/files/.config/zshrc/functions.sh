@@ -1,19 +1,3 @@
-gacp() {
-  git add .
-  git commit -m "$1"
-  git push
-}
-
-
-wdc() {
-  wd $1 && code .
-}
-
-
-wdv() {
-  wd $1 && nvim .
-}
-
 fex() {
   if [ -z "$1" ]; then
     if [ ! -f ~/.env ]; then
@@ -62,7 +46,32 @@ fex() {
   fi
 }
 
-function mans() {
+
+fshow() {
+  git log --graph --color=always \
+    --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+    fzf --ansi --preview "echo {} \
+    | grep -o '[a-f0-9]\{7\}' \
+    | head -1 \
+    | xargs -I % sh -c 'git show --color=always %'" \
+      --bind "enter:execute:
+            (grep -o '[a-f0-9]\{7\}' \
+                | head -1 \
+                | xargs -I % sh -c 'git show --color=always % \
+                | less -R') << 'FZF-EOF'
+            {}
+FZF-EOF"
+}
+
+
+gacp() {
+  git add .
+  git commit -m "$1"
+  git push
+}
+
+
+mans() {
   man -k . |
     fzf -n1,2 --preview "echo {} \
     | cut -d' ' -f1 \
@@ -77,18 +86,12 @@ function mans() {
       | less -R)"
 }
 
-function fshow() {
-  git log --graph --color=always \
-    --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
-    fzf --ansi --preview "echo {} \
-    | grep -o '[a-f0-9]\{7\}' \
-    | head -1 \
-    | xargs -I % sh -c 'git show --color=always %'" \
-      --bind "enter:execute:
-            (grep -o '[a-f0-9]\{7\}' \
-                | head -1 \
-                | xargs -I % sh -c 'git show --color=always % \
-                | less -R') << 'FZF-EOF'
-            {}
-FZF-EOF"
+
+wdc() {
+  wd $1 && code .
+}
+
+
+wdv() {
+  wd $1 && nvim .
 }

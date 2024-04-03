@@ -116,7 +116,7 @@
 
 - name: "ZSH | OMZ | Create zshrc/oh-my-zsh.sh"
   ansible.builtin.template:
-    dest: "~/.config/zshrc/oh-my-zsh.sh"
+    dest: "~/.config/zshrc/oh-my-z.sh"
     src: oh-my-zsh.j2
     mode: "0644"
 
@@ -124,5 +124,5 @@
 - name: "ZSH | OMZ | Create zshrc/env.sh"
   ansible.builtin.template:
     dest: "~/.config/zshrc/env.sh"
-    src: env.sh.j2
+    src: env.j2
     mode: "0644"

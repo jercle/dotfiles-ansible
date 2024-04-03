@@ -26,7 +26,7 @@ source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highl
 
 
 {% if lookup('ansible.builtin.env', 'ANSIBLE_ENV_TYPE', default="") != "" %}
-{% include "omz-plugins-" + envType + ".txt" %}
+{% include envType + "/omz-plugins.txt" %}
 {% else %}
 {% include "omz-plugins-default.txt" %}
 {% endif %}
