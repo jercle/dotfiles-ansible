@@ -1,5 +1,6 @@
 default_roles:
   - zsh
+  - bash
 
 # default_roles:
 #   # - system

@@ -118,3 +118,5 @@ fi
 eval "$(/bin/brew shellenv)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+. "$HOME/.cargo/env"
