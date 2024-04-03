@@ -1,48 +1,51 @@
 default_roles:
-  # - system
-  # - 1password
-  # - alacritty
-  # - asciiquarium
-  # - bash
-  # - bat
-  # - docker
-  # - flatpak
-  # - fonts
-  - fzf
-  # - git
-  - gnu-tar
-  - go
-  # - helm
-  - jq
-  # - k8s
-  # - k9s
-  # - lazygit
-  # - lua
-  # - nala
-  - ncdu
-  # - neofetch
-  # - neovim
-  # - ngrok
-  # - npm
-  # - nvm
-  # - obsidian
-  - pwsh
-  # - python
-  - ripgrep
-  # - ruby
-  # - rust
-  # - ssh
-  # - sshfs
-  # - terraform
-  - tfenv
-  - tig
-  - tldr
-  # - tmate
-  # - tmux
-  # - trivy
-  # - zellij
-  # - spotify
-  # - zoxide
+  - zsh
+
+# default_roles:
+#   # - system
+#   # - 1password
+#   # - alacritty
+#   # - asciiquarium
+#   # - bash
+#   # - bat
+#   # - docker
+#   # - flatpak
+#   # - fonts
+#   - fzf
+#   # - git
+#   - gnu-tar
+#   - go
+#   # - helm
+#   - jq
+#   # - k8s
+#   # - k9s
+#   # - lazygit
+#   # - lua
+#   # - nala
+#   - ncdu
+#   # - neofetch
+#   # - neovim
+#   # - ngrok
+#   # - npm
+#   # - nvm
+#   # - obsidian
+#   - pwsh
+#   # - python
+#   - ripgrep
+#   # - ruby
+#   # - rust
+#   # - ssh
+#   # - sshfs
+#   # - terraform
+#   - tfenv
+#   - tig
+#   - tldr
+#   # - tmate
+#   # - tmux
+#   # - trivy
+#   # - zellij
+#   # - spotify
+#   # - zoxide
 
 git_user_name: "jercle"
 git_user_email: !vault |

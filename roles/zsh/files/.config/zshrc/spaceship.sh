@@ -4,43 +4,52 @@ SPACESHIP_TIME_SHOW=true
 SPACESHIP_TIME_FORMAT='%D{%a %b %d, %H:%M}'
 SPACESHIP_BATTERY_SHOW=always
 SPACESHIP_EXIT_CODE_SHOW=true
+# SPACESHIP_DIR_TRUNC_REPO=false
+# SPACESHIP_GIT_STATUS_UNTRACKED	?	Indicator for untracked changes
+# SPACESHIP_GIT_STATUS_ADDED	+	Indicator for added changes
+# SPACESHIP_GIT_STATUS_MODIFIED	!	Indicator for unstaged files
+# SPACESHIP_GIT_STATUS_RENAMED	»	Indicator for renamed files
+# SPACESHIP_GIT_STATUS_DELETED	✘	Indicator for deleted files
+# SPACESHIP_GIT_STATUS_STASHED	$	Indicator for stashed changes
+# SPACESHIP_GIT_STATUS_UNMERGED	=	Indicator for unmerged changes
+# SPACESHIP_GIT_STATUS_AHEAD	⇡	Indicator for unpushed changes (ahead of remote branch)
+# SPACESHIP_GIT_STATUS_BEHIND	⇣	Indicator for unpulled changes (behind of remote branch)
+# SPACESHIP_GIT_STATUS_DIVERGED	⇕	Indicator for diverged changes (diverged with remote branch)
+
+SPACESHIP_SUDO_SHOW=true
+SPACESHIP_SUDO_SUFFIX=" "
+SPACESHIP_TERRAFORM_SHOW=true
 
 SPACESHIP_PROMPT_ORDER=(
-  user          # Username section
-  dir           # Current directory section
+  # ansible
+  async
+  # user # Username section
+  dir  # Current directory section
   # host          # Hostname section
-  git           # Git section (git_branch + git_status)
-  # hg            # Mercurial section (hg_branch  + hg_status)
-  package       # Package version
-  # gradle        # Gradle section
-  # maven         # Maven section
-  node          # Node.js section
-  # ruby          # Ruby section
-  # elixir        # Elixir section
-  # xcode         # Xcode section
-  # swift         # Swift section
-  golang        # Go section
+  git # Git section (git_branch + git_status)
+  package # Package version
+  node # Node.js section
+  golang # Go section
+  lua
   # php           # PHP section
   # rust          # Rust section
-  # haskell       # Haskell Stack section
-  # julia         # Julia section
-  docker        # Docker section
-  aws           # Amazon Web Services section
-  gcloud        # Google Cloud Platform section
-  venv          # virtualenv section
+  docker # Docker section
+  docker_compose
+  aws    # Amazon Web Services section
+  gcloud # Google Cloud Platform section
+  # venv   # virtualenv section
   # conda         # conda virtualenv section
   # pyenv         # Pyenv section
-  # dotnet        # .NET section
-  # ember         # Ember.js section
-  kubectl       # Kubectl context section
-  terraform     # Terraform workspace section
-  # ibmcloud      # IBM Cloud section
-  exec_time     # Execution time
-  time          # Time stamps section
-  battery       # Battery level and status
-  line_sep      # Line break
+  kubectl   # Kubectl context section
+  # line_sep
+  terraform # Terraform workspace section
+  exec_time # Execution time
+  time      # Time stamps section
+  # battery   # Battery level and status
+  azure # Current Azure Subscription
+  line_sep  # Line break
   # vi_mode       # Vi-mode indicator
-  jobs          # Background jobs indicator
-  exit_code     # Exit code section
-  char          # Prompt character
+  exit_code # Exit code section
+  sudo
+  char      # Prompt character
 )

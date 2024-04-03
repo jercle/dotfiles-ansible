@@ -1,0 +1,128 @@
+---
+- name: "ZSH | Check Oh My Zsh dir exists"
+  stat:
+    path: ~/.oh-my-zsh/
+  register: zsh_omz_dir
+
+
+- name: "ZSH | Download Oh My Zsh installation script" # noqa: latest
+  when: not zsh_omz_dir.stat.exists
+  get_url:
+    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    dest: /tmp/install_ohmyzsh.sh
+
+
+- name: "ZSH | Run Oh My Zsh installation script" # noqa: latest
+  when: not zsh_omz_dir.stat.exists
+  command: sh /tmp/install_ohmyzsh.sh --unattended
+  register: ohmyzsh_result
+  failed_when: "'FAILED' in ohmyzsh_result.stderr"
+
+
+- name: "ZSH | Check zsh-autosuggestions plugin dir exist"
+  stat:
+    path: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+  register: zsh_auto_sugg_dir
+
+
+- name: "ZSH | Install zsh-autosuggestions plugin" # noqa: latest
+  when: not zsh_auto_sugg_dir.stat.exists
+  ansible.builtin.git:
+    repo: https://github.com/zsh-users/zsh-autosuggestions
+    dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+    depth: 1
+
+
+- name: "ZSH | Check zsh-completions plugin dir exist"
+  stat:
+    path: ~/.oh-my-zsh/custom/plugins/zsh-completions
+  register: zsh_completions_dir
+
+
+- name: "ZSH | Install zsh-completions plugin" # noqa: latest
+  when: not zsh_completions_dir.stat.exists
+  ansible.builtin.git:
+    repo: https://github.com/zsh-users/zsh-completions
+    dest: ~/.oh-my-zsh/custom/plugins/zsh-completions
+    depth: 1
+
+
+- name: "ZSH | Check zsh-syntax-highlighting plugin dir exist"
+  stat:
+    path: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+  register: zsh_syntax_hl_dir
+
+
+- name: "ZSH | Install zsh-syntax-highlighting plugin" # noqa: latest
+  when: not zsh_syntax_hl_dir.stat.exists
+  ansible.builtin.git:
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    depth: 1
+
+
+- name: "ZSH | Check zsh-history-substring-search plugin dir exist"
+  stat:
+    path: ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search
+  register: zsh_hist_search_dir
+
+
+- name: "ZSH | Install zsh-history-substring-search plugin # noqa: latest"
+  when: not zsh_hist_search_dir.stat.exists
+  ansible.builtin.git:
+    repo: https://github.com/zsh-users/zsh-history-substring-search
+    dest: ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search
+    depth: 1
+
+
+- name: "ZSH | Check Spaceship Prompt exist"
+  stat:
+    path: ~/.oh-my-zsh/custom/themes/spaceship-prompt
+  register: spaceship_prompt_dir
+
+- name: "ZSH | Install Spaceship Prompt" # noqa: latest
+  when: not spaceship_prompt_dir.stat.exists
+  ansible.builtin.git:
+    repo: https://github.com/spaceship-prompt/spaceship-prompt.git
+    dest: ~/.oh-my-zsh/custom/themes/spaceship-prompt
+    depth: 1
+
+
+- name: "ZSH | Create Spaceship symlink"
+  when: not spaceship_prompt_dir.stat.exists
+  ansible.builtin.file:
+    src: ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme
+    dest: ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme
+    state: link
+
+
+# - name: "ZSH | OMZ | Create ~/.config/zshrc dir"
+#   ansible.builtin.file:
+#     src: "{{ role_path }}/files/.config/zshrc"
+#     dest: ~/.config/zshrc
+
+
+- name: "ZSH | OMZ | Copy main config file"
+  ansible.builtin.copy:
+    src: "{{ role_path }}/files/.zshrc"
+    dest: ~/.zshrc
+
+
+- name: "ZSH | OMZ | Copy config files"
+  ansible.builtin.copy:
+    src: "{{ role_path }}/files/.config/zshrc"
+    dest: ~/.config/
+
+
+- name: "ZSH | OMZ | Create zshrc/oh-my-zsh.sh"
+  ansible.builtin.template:
+    dest: "~/.config/zshrc/oh-my-zsh.sh"
+    src: oh-my-zsh.j2
+    mode: "0644"
+
+
+- name: "ZSH | OMZ | Create zshrc/env.sh"
+  ansible.builtin.template:
+    dest: "~/.config/zshrc/env.sh"
+    src: env.sh.j2
+    mode: "0644"

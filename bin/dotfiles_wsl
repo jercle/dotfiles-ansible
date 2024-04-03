@@ -103,6 +103,7 @@ function ubuntu_setup() {
     _cmd "sudo apt-add-repository -y ppa:ansible/ansible"
     _cmd "sudo apt-get update"
     _cmd "sudo apt-get install -y ansible"
+    _cmd "sudo apt-get install -y ansible-lint"
     _cmd "sudo apt-get install python3-argcomplete"
     _cmd "sudo activate-global-python-argcomplete3"
   fi
@@ -188,20 +189,29 @@ update_ansible_galaxy() {
   _cmd "ansible-galaxy install -r $DOTFILES_DIR/requirements/common.yml $os_requirements"
 }
 
-source /etc/os-release
-_task "Loading Setup for detected OS: $ID"
-case $ID in
-  ubuntu)
-    ubuntu_setup
-    ;;
-  arch)
-    arch_setup
-    ;;
-  *)
-    _task "Unsupported OS"
-    _cmd "echo 'Unsupported OS'"
-    ;;
-esac
+
+if [ -f /etc/os-release ]; then
+  source /etc/os-release
+  _task "Loading Setup for detected OS: $ID"
+  case $ID in
+    ubuntu)
+      ubuntu_setup
+      ;;
+    arch)
+      arch_setup
+      ;;
+    *)
+      _task "Unsupported OS"
+      _cmd "echo 'Unsupported OS'"
+      ;;
+  esac
+  # echo $ID
+elif [ -f /System/Library/CoreServices/SystemVersion.plist ]; then
+  _task "Loading Setup for detected OS: macos"
+  macos_setup
+else
+  echo "Unsupported OS"
+fi
 
 
 if ! [[ -f "$SSH_DIR/authorized_keys_test" ]]; then

@@ -2,6 +2,8 @@
 - name: DotFiles Config
   hosts: localhost
   connection: local
+  vars:
+    envType: "{{ ansible_env.ANSIBLE_ENVIRONMENT_TYPE }}"
 
   pre_tasks:
     - name: Detect WSL

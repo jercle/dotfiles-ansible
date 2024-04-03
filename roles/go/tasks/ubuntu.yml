@@ -43,6 +43,7 @@
   ansible.builtin.uri:
     url: https://go.dev/dl/?mode=json
   register: go_latest_version_json
+  check_mode: false
   changed_when: false
 
 - name: "Go-Lang | Registering go Latest Version"

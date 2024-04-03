@@ -1,11 +1,17 @@
-function acp() {
+gacp() {
   git add .
   git commit -m "$1"
   git push
 }
 
+
 wdc() {
   wd $1 && code .
+}
+
+
+wdv() {
+  wd $1 && nvim .
 }
 
 fex() {
