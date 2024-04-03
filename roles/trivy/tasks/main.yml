@@ -1,9 +1,14 @@
 ---
-- name: "trivy | Checking for Distribution Config: {{ ansible_distribution }}"
-  ansible.builtin.stat:
-    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
-  register: trivy_distribution_config
+- name: "trivy | Install"
+  community.general.homebrew:
+    name: aquasecurity/trivy/trivy
+    state: present
 
-- name: "trivy | Run Tasks: {{ ansible_distribution }}"
-  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
-  when: trivy_distribution_config.stat.exists
+# - name: "trivy | Checking for Distribution Config: {{ ansible_distribution }}"
+#   ansible.builtin.stat:
+#     path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+#   register: trivy_distribution_config
+
+# - name: "trivy | Run Tasks: {{ ansible_distribution }}"
+#   ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+#   when: trivy_distribution_config.stat.exists

@@ -1,5 +1,5 @@
 ---
-- name: "tfenv | {{ ansible_distribution }} | Install"
+- name: "tfenv | Install"
   community.general.homebrew:
     name: tfenv
     state: present

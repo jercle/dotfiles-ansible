@@ -1,5 +1,1 @@
 ---
-- name: "trivy | {{ ansible_distribution }} | Install"
-  community.general.homebrew:
-    name: aquasecurity/trivy/trivy
-    state: present

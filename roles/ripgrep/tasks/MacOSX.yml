@@ -1,5 +1,5 @@
 ---
-- name: "ripgrep | {{ ansible_distribution }} | Install"
-  community.general.homebrew:
-    name: ripgrep
-    state: present
+# - name: "ripgrep | {{ ansible_distribution }} | Install"
+#   community.general.homebrew:
+#     name: ripgrep
+#     state: present

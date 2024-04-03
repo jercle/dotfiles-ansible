@@ -1,9 +1,15 @@
 ---
-- name: "ncdu | Checking for Distribution Config: {{ ansible_distribution }}"
-  ansible.builtin.stat:
-    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
-  register: ncdu_distribution_config
+- name: "NCDU | Install"
+  community.general.homebrew:
+    name: neovim
+    state: present
 
-- name: "ncdu | Run Tasks: {{ ansible_distribution }}"
-  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
-  when: ncdu_distribution_config.stat.exists
+
+# - name: "ncdu | Checking for Distribution Config: {{ ansible_distribution }}"
+#   ansible.builtin.stat:
+#     path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+#   register: ncdu_distribution_config
+
+# - name: "ncdu | Run Tasks: {{ ansible_distribution }}"
+#   ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+#   when: ncdu_distribution_config.stat.exists

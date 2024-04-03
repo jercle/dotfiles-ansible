@@ -1,9 +1,14 @@
 ---
-- name: "jq | Checking for Distribution Config: {{ ansible_distribution }}"
-  ansible.builtin.stat:
-    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
-  register: jq_distribution_config
+- name: "GNU tar | Install"
+  community.general.homebrew:
+    name: gnu-tar
+    state: present
 
-- name: "jq | Run Tasks: {{ ansible_distribution }}"
-  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
-  when: jq_distribution_config.stat.exists
+# - name: "GNU tar | Checking for Distribution Config: {{ ansible_distribution }}"
+#   ansible.builtin.stat:
+#     path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+#   register: gnu_tar_distribution_config
+
+# - name: "GNU tar | Run Tasks: {{ ansible_distribution }}"
+#   ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+#   when: gnu_tar_distribution_config.stat.exists
