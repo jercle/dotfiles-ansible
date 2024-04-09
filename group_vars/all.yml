@@ -2,7 +2,7 @@
 
 default_roles:
   - fzf
-  - git
+  # - git
   - gnu-tar
   - go
   - jq
