@@ -169,25 +169,25 @@ function arch_setup() {
     _cmd "sudo pacman -S --noconfirm python-watchdog"
   fi
 
-  if ! pacman -Q openssh >/dev/null 2>&1; then
-    _task "Installing OpenSSH"
-    _cmd "sudo pacman -S --noconfirm openssh"
-  fi
+  # if ! pacman -Q openssh >/dev/null 2>&1; then
+  #   _task "Installing OpenSSH"
+  #   _cmd "sudo pacman -S --noconfirm openssh"
+  # fi
 
   _task "Setting Locale"
-  _cmd "sudo localectl set-locale LANG=en_US.UTF-8"
+  _cmd "sudo localectl set-locale LANG=en_AU.UTF-8"
 }
 
-update_ansible_galaxy() {
-  local os=$1
-  local os_requirements=""
-  _task "Updating Ansible Galaxy"
-  if [ -f "$DOTFILES_DIR/requirements/$os.yml" ]; then
-    _task "${OVERWRITE}Updating Ansible Galaxy with OS Config: $os"
-    os_requirements="$DOTFILES_DIR/requirements/$os.yml"
-  fi
-  _cmd "ansible-galaxy install -r $DOTFILES_DIR/requirements/common.yml $os_requirements"
-}
+# update_ansible_galaxy() {
+#   local os=$1
+#   local os_requirements=""
+#   _task "Updating Ansible Galaxy"
+#   if [ -f "$DOTFILES_DIR/requirements/$os.yml" ]; then
+#     _task "${OVERWRITE}Updating Ansible Galaxy with OS Config: $os"
+#     os_requirements="$DOTFILES_DIR/requirements/$os.yml"
+#   fi
+#   _cmd "ansible-galaxy install -r $DOTFILES_DIR/requirements/common.yml $os_requirements"
+# }
 
 
 if [ -f /etc/os-release ]; then
