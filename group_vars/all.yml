@@ -1,6 +1,7 @@
 # ansible_python_interpreter: /opt/homebrew/bin/python3
 
 default_roles:
+  - azurecli
   - fzf
   # - git
   - gnu-tar
@@ -17,6 +18,7 @@ default_roles:
   - tmux
   - trivy
   - zsh
+
   # - 1password
   # - alacritty
   # - asciiquarium
