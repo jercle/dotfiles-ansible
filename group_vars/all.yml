@@ -1,22 +1,22 @@
 # ansible_python_interpreter: /opt/homebrew/bin/python3
 
 default_roles:
-  # - fzf
-  # - git
-  # - gnu-tar
-  # - go
-  # - jq
+  - fzf
+  - git
+  - gnu-tar
+  - go
+  - jq
   - lazygit
-  # - ncdu
-  # - ngrok
-  # - nvm
-  # - ripgrep
-  # - tfenv
-  # - tig
-  # - tldr
-  # - tmux
-  # - trivy
-  # - zsh
+  - ncdu
+  - ngrok
+  - nvm
+  - ripgrep
+  - tfenv
+  - tig
+  - tldr
+  - tmux
+  - trivy
+  - zsh
   # - 1password
   # - alacritty
   # - asciiquarium
