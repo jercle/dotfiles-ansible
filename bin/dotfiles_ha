@@ -178,17 +178,6 @@ function arch_setup() {
   _cmd "sudo localectl set-locale LANG=en_AU.UTF-8"
 }
 
-# update_ansible_galaxy() {
-#   local os=$1
-#   local os_requirements=""
-#   _task "Updating Ansible Galaxy"
-#   if [ -f "$DOTFILES_DIR/requirements/$os.yml" ]; then
-#     _task "${OVERWRITE}Updating Ansible Galaxy with OS Config: $os"
-#     os_requirements="$DOTFILES_DIR/requirements/$os.yml"
-#   fi
-#   _cmd "ansible-galaxy install -r $DOTFILES_DIR/requirements/common.yml $os_requirements"
-# }
-
 
 if [ -f /etc/os-release ]; then
   source /etc/os-release
@@ -214,14 +203,6 @@ else
 fi
 
 
-# if ! [[ -f "$SSH_DIR/authorized_keys_test" ]]; then
-#   _task "Generating SSH keys"
-#   _cmd "mkdir -p $SSH_DIR"
-#   _cmd "chmod 700 $SSH_DIR"
-#   _cmd "ssh-keygen -b 4096 -t rsa -f $SSH_DIR/id_rsa_test -N '' -C $USER@$HOSTNAME"
-#   _cmd "cat $SSH_DIR/id_rsa.pub >> $SSH_DIR/authorized_keys_test"
-# fi
-
 if ! [[ -d "$DOTFILES_DIR" ]]; then
   _task "Cloning repository"
   _cmd "git clone --quiet https://github.com/jercle/dotfiles-ansible.git $DOTFILES_DIR"
@@ -230,14 +211,12 @@ else
   _cmd "git -C $DOTFILES_DIR pull --quiet"
 fi
 
-# pushd "$DOTFILES_DIR" 2>&1 > /dev/null
-# update_ansible_galaxy $ID
 
 _task "Running playbook"; _task_done
 if [[ -f $VAULT_SECRET ]]; then
   ansible-playbook --vault-password-file $VAULT_SECRET "$DOTFILES_DIR/main-wsl.yml" "$@"
 else
-  ansible-playbook "$DOTFILES_DIR/main.yml" "$@"
+  ansible-playbook "$DOTFILES_DIR/main-wsl.yml" "$@"
 fi
 
 popd 2>&1 > /dev/null
