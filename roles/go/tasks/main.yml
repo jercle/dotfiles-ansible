@@ -9,7 +9,7 @@
 # - name: Install Packages
 #   import_tasks: packages.yml
 
-- Go | Ensure ~/.config/go exists
+- name: Go | Ensure ~/.config/go exists
   ansible.builtin.file:
     path: ~/.config/go
     state: directory
