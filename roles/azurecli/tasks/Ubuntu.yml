@@ -1,4 +1,10 @@
 ---
+# -name: "Azure CLI | Install"
+#   ansible.builtin.shell:
+#     cmd: |
+#     curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+
 - name: "Azure CLI | Install dependencies"
   ansible.builtin.apt:
     name: "{{ item }}"
@@ -27,6 +33,6 @@
 - name: "Azure CLI | Install azure-cli"
   ansible.builtin.apt:
     name: azure-cli
-    update_cache: true
+    # update_cache: true
     state: present
   become: true
