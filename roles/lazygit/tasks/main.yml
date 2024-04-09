@@ -1,7 +1,12 @@
 ---
-- name: "Lazygit | Install"
+- name: "Lazygit | Tap"
   community.general.homebrew_tap:
-    name: jesseduffield/lazygit
+    name: jesseduffield/lazygit/lazygit
+    state: present
+
+- name: "Lazygit | Install"
+  community.general.homebrew:
+    name: lazygit
     state: present
 # - name: Run Ubuntu Tasks
 #   ansible.builtin.import_tasks: ubuntu.yml
