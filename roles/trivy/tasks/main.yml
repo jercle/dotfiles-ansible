@@ -1,6 +1,6 @@
 ---
 - name: "trivy | Install"
-  community.general.homebrew_tap:
+  community.general.homebrew:
     name: aquasecurity/trivy/trivy
     state: present
 
