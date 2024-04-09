@@ -8,7 +8,7 @@ default_roles:
   - jq
   - lazygit
   - ncdu
-  - ngrok
+  # - ngrok
   - nvm
   - ripgrep
   - tfenv
