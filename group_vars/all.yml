@@ -18,6 +18,7 @@ default_roles:
   - tmux
   - trivy
   - zsh
+  - lsd
 
   # - 1password
   # - alacritty
