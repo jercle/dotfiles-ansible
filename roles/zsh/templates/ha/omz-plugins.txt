@@ -4,7 +4,7 @@ plugins=(
   azure
   brew
   charm
-  chucknorris
+  # chucknorris
   colored-man-pages
   colorize # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/colorize
   command-not-found
