@@ -47,18 +47,26 @@
     depth: 1
 
 
-- name: "ZSH | Check zsh-syntax-highlighting plugin dir exist"
-  stat:
-    path: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-  register: zsh_syntax_hl_dir
+# - name: "ZSH | Check zsh-syntax-highlighting plugin dir exist"
+#   stat:
+#     path: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+#   register: zsh_syntax_hl_dir
+
+
+# - name: "ZSH | Install zsh-syntax-highlighting plugin" # noqa: latest
+#   when: not zsh_syntax_hl_dir.stat.exists
+#   ansible.builtin.git:
+#     repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+#     dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+#     depth: 1
 
 
 - name: "ZSH | Install zsh-syntax-highlighting plugin" # noqa: latest
-  when: not zsh_syntax_hl_dir.stat.exists
-  ansible.builtin.git:
-    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
-    dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-    depth: 1
+  community.general.homebrew:
+    name: brew install zsh-syntax-highlighting
+    state: present
+
+-
 
 
 - name: "ZSH | Check zsh-history-substring-search plugin dir exist"
