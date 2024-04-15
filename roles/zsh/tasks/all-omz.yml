@@ -63,7 +63,7 @@
 
 - name: "ZSH | Install zsh-syntax-highlighting plugin" # noqa: latest
   community.general.homebrew:
-    name: brew install zsh-syntax-highlighting
+    name: zsh-syntax-highlighting
     state: present
 
 -
