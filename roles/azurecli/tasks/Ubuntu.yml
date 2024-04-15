@@ -33,6 +33,7 @@
 - name: "Azure CLI | Update apt cache"
   ansible.builtin.apt:
     update_cache: true
+  become: true
 
 - name: "Azure CLI | Install azure-cli"
   ansible.builtin.apt:
