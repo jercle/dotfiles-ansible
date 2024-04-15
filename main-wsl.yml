@@ -3,8 +3,7 @@
   hosts: localhost
   connection: local
   vars:
-    envType: "{{ ansible_env.ANSIBLE_ENVIRONMENT_TYPE }}"
-
+    envType: "{{ lookup('ansible.builtin.env', 'ANSIBLE_ENVIRONMENT_TYPE', default='') }}"
   pre_tasks:
     - name: Detect WSL
       ansible.builtin.import_tasks: pre_tasks/detect_wsl.yml
