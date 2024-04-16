@@ -9,6 +9,8 @@ fex() {
     fi
   else
     if [[ "$1" == "mod" ]]; then
+      nvim ~/.env
+    elif [[ "$1" == "modc" ]]; then
       code ~/.env
     elif [[ "$1" == "show" ]]; then
         grep -v "^#" ~/.env | grep -v -e '^[[:space:]]*$' | sed -E "s/(.*)=.*/\1/"
@@ -39,6 +41,9 @@ fex() {
             unset $(grep -v "^#" "$1"/.env | grep -v -e '^[[:space:]]*$' | sed -E "s/(.*)=.*/\1/" | xargs)
           fi
         elif [[ "$2" == "mod" ]]; then
+          nvim "$1"/.env
+        fi
+        elif [[ "$2" == "modc" ]]; then
           code "$1"/.env
         fi
       fi
