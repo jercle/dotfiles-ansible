@@ -42,7 +42,6 @@ fex() {
           fi
         elif [[ "$2" == "mod" ]]; then
           nvim "$1"/.env
-        fi
         elif [[ "$2" == "modc" ]]; then
           code "$1"/.env
         fi

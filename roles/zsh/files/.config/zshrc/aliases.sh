@@ -4,6 +4,7 @@ alias cls='printf "\033c"'
 alias grg="go run main.go"
 alias gword="grep --exclude-dir={var,mnt,sys,run,proc,tmp,lost+found,root,etc} --include=\*.{sh} -rnw '/' -e"
 alias mk="minikube"
+alias mux="tmuxinator"
 alias nbld="npm run build"
 alias nvcode="code ~/.config/nvim/"
 alias nvconf="nvim ~/.config/nvim/"
