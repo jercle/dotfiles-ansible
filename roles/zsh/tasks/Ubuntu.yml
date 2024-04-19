@@ -1,6 +1,6 @@
-# ---
-# - name: Install ZSH
-#   ansible.builtin.apt:
-#     name: zsh
-#     state: present
-#   become: true
+---
+- name: ZSH | Install fortune-mod package
+  ansible.builtin.apt:
+    name: fortune-mod
+    state: present
+  become: true
