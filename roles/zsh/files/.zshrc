@@ -5,5 +5,4 @@ for FILE in ~/.config/zshrc/*; do
     source $FILE
 done
 
-
 source $ZSH/oh-my-zsh.sh
