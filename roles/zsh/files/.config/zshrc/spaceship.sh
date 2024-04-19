@@ -26,7 +26,7 @@ SPACESHIP_PROMPT_ORDER=(
   async
   # user # Username section
   dir  # Current directory section
-  # host          # Hostname section
+  host          # Hostname section
   git # Git section (git_branch + git_status)
   package # Package version
   node # Node.js section

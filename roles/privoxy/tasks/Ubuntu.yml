@@ -1,0 +1,22 @@
+---
+- name: "Privoxy | {{ ansible_distribution }} | Install Privoxy"
+  ansible.builtin.apt:
+    name:
+      - privoxy
+    state: present
+  become: true
+  when: envType == "ha"
+
+
+- name: "Privoxy | {{ ansible_distribution }} | Copy config file"
+  ansible.builtin.copy:
+    src: "~/git/evan-tooling/foam-docs/docs/environment/proxy/privoxy"
+    dest: "/etc/privoxy"
+    mode: "0644"
+  become: true
+
+- name: "Privoxy | {{ ansible_distribution }} | Copy bastion yaml"
+  ansible.builtin.copy:
+    src: "~/git/evan-tooling/foam-docs/docs/environment/proxy/bastion.yml"
+    dest: "~/.config/tmuxinator/bastion.yml"
+    mode: "0644"

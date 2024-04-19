@@ -1,0 +1,11 @@
+---
+- name: "Privoxy | Checking for Distribution Config: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+  register: privoxy_distribution_config
+  when: envType == "ha"
+
+- name: "Privoxy | Run Tasks: {{ ansible_distribution }}"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: privoxy_distribution_config.stat.exists
+  when: envType == "ha"
