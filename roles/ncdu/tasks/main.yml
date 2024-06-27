@@ -1,7 +1,7 @@
 ---
 - name: "NCDU | Install"
   community.general.homebrew:
-    name: neovim
+    name: ncdu
     state: present
 
 

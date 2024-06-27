@@ -1,6 +1,9 @@
 # Aliases
 alias awscreds="code ~/.aws/credentials"
 alias cls='printf "\033c"'
+alias ctfa="cls && tfa"
+alias ctfp="cls && tfp"
+alias ctfss="cls && tfs show"
 alias grg="go run main.go"
 alias gword="grep --exclude-dir={var,mnt,sys,run,proc,tmp,lost+found,root,etc} --include=\*.{sh} -rnw '/' -e"
 alias mk="minikube"
