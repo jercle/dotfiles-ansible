@@ -5,7 +5,7 @@
     state: present
 
 - name: "Ruby | Copy gemrc"
-  ansible.builtin.copy:
   when: envType == "ha"
-  src: "{{ role_path }}/files/gemrc"
-  dest: ~/.config/gem/gemrc
+  ansible.builtin.copy:
+    src: "{{ role_path }}/files/gemrc"
+    dest: ~/.config/gem/gemrc
