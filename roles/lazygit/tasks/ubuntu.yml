@@ -4,7 +4,7 @@
     name: jesseduffield/lazygit
     state: present
 
-- name: "Lazygit | Tap"
+- name: "Lazygit | Install"
   community.general.homebrew:
     name: jesseduffield/lazygit/lazygit
     state: present
