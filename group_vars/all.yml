@@ -1,54 +1,54 @@
 # ansible_python_interpreter: /opt/homebrew/bin/python3
 
 default_roles:
-  # # - azurecli
-  # - fzf
-  # # # - git
-  # - gnu-tar
-  # # - go
-  # - jq
+  - azurecli
+  - fzf
+  # # - git
+  - gnu-tar
+  # - go
+  - jq
   - lazygit
-  # - ncdu
-  # # # - ngrok
-  # # - nvm
-  # - ripgrep
-  # # - tfenv
-  # # - tig
-  # - tldr
-  # # - tmux
-  # - trivy
-  # - zsh
-  # - lsd
+  - ncdu
+  # # - ngrok
+  # - nvm
+  - ripgrep
+  # - tfenv
+  - tig
+  - tldr
+  - tmux
+  - trivy
+  - zsh
+  - lsd
 
-  # # - 1password
-  # # - alacritty
-  # # - asciiquarium
-  # # - bash
-  # # - bat
-  # - docker
-  # # - flatpak
-  # # - fonts
-  # # - helm
-  # # - k8s
-  # # - k9s
-  # # - lua
-  # # - nala
-  # # - neofetch
-  # - neovim
-  # # - npm
-  # # - obsidian
-  # # - pwsh
-  # # - python
-  # # - ruby
-  # # - rust
-  # # - spotify
-  # # - ssh
-  # # - sshfs
-  # - system
-  # # - terraform
-  # # - tmate
-  # # - zellij
-  # - zoxide
+  # - 1password
+  # - alacritty
+  # - asciiquarium
+  # - bash
+  # - bat
+  - docker
+  # - flatpak
+  # - fonts
+  # - helm
+  # - k8s
+  # - k9s
+  # - lua
+  # - nala
+  # - neofetch
+  - neovim
+  # - npm
+  # - obsidian
+  # - pwsh
+  # - python
+  # - ruby
+  # - rust
+  # - spotify
+  # - ssh
+  # - sshfs
+  - system
+  # - terraform
+  # - tmate
+  # - zellij
+  - zoxide
 
 git_user_name: "jercle"
 git_user_email: !vault |
