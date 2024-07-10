@@ -1,8 +1,28 @@
 ---
-- name: "Lazygit | Install"
+- name: "Lazygit | Tap"
   community.general.homebrew_tap:
+    name: jesseduffield/lazygit
+    state: present
+
+- name: "Lazygit | Tap"
+  community.general.homebrew:
     name: jesseduffield/lazygit/lazygit
     state: present
+
+
+
+
+# ---
+# - name: "trivy | Tap"
+#   community.general.homebrew_tap:
+#     name: aquasecurity/trivy
+#     state: present
+
+# - name: "trivy | Install"
+#   community.general.homebrew:
+#     name: aquasecurity/trivy/trivy
+#     state: present
+
 
 # - name: "LAZYGIT | Download Latest Version JSON"
 #   ansible.builtin.uri:
