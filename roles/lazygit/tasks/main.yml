@@ -1,4 +1,9 @@
 ---
+- name: "Lazygit | Tap"
+  community.general.homebrew_tap:
+    name: jesseduffield/lazygit
+    state: present
+
 - name: "Lazygit | Install"
   community.general.homebrew:
     name: jesseduffield/lazygit/lazygit
