@@ -1,31 +1,31 @@
 # ansible_python_interpreter: /opt/homebrew/bin/python3
 
 default_roles:
-  # - azurecli
-  # - fzf
+  - azurecli
+  - fzf
   # # - git
-  # - gnu-tar
+  - gnu-tar
   - go
-  # - jq
-  # - lazygit
-  # - ncdu
+  - jq
+  - lazygit
+  - ncdu
   # # - ngrok
   # - nvm
-  # - ripgrep
+  - ripgrep
   # - tfenv
   # - tig
-  # - tldr
+  - tldr
   # - tmux
-  # - trivy
-  # - zsh
-  # - lsd
+  - trivy
+  - zsh
+  - lsd
 
   # - 1password
   # - alacritty
   # - asciiquarium
   # - bash
   # - bat
-  # - docker
+  - docker
   # - flatpak
   # - fonts
   # - helm
@@ -34,7 +34,7 @@ default_roles:
   # - lua
   # - nala
   # - neofetch
-  # - neovim
+  - neovim
   # - npm
   # - obsidian
   # - pwsh
@@ -44,11 +44,11 @@ default_roles:
   # - spotify
   # - ssh
   # - sshfs
-  # - system
+  - system
   # - terraform
   # - tmate
   # - zellij
-  # - zoxide
+  - zoxide
 
 git_user_name: "jercle"
 git_user_email: !vault |
