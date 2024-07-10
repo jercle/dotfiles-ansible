@@ -4,7 +4,6 @@
     name: tofuutils/tap
     state: present
 
-
 - name: "tofuenv | Install"
   community.general.homebrew:
     name: tofuenv
