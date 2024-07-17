@@ -1,0 +1,5 @@
+---
+- name: "packer | Install"
+  community.general.homebrew:
+    name: packer
+    state: present
