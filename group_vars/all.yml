@@ -5,12 +5,13 @@ default_roles:
   - fzf
   # # - git
   - gnu-tar
-  # - go
+  - go
   - jq
   - lazygit
   - ncdu
   # # - ngrok
   # - nvm
+  - gh
   - ripgrep
   # - tfenv
   - tofuenv
