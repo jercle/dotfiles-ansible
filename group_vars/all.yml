@@ -2,33 +2,33 @@
 
 default_roles:
   - azurecli
+  - btop
+  - docker
+  - fonts
   - fzf
-  # # - git
+  - gh
   - gnu-tar
   - go
-  - btop
   - jq
   - lazygit
+  - lsd
   - ncdu
-  # # - ngrok
-  # - nvm
-  - gh
+  - neovim
   - ripgrep
-  # - tfenv
-  - tofuenv
+  - ruby
+  - system
   - tig
   - tldr
   - tmux
+  - tofuenv
   - trivy
+  - zoxide
   - zsh
-  - lsd
-
   # - 1password
   # - alacritty
   # - asciiquarium
   # - bash
   # - bat
-  - docker
   # - flatpak
   # - fonts
   # - helm
@@ -37,21 +37,21 @@ default_roles:
   # - lua
   # - nala
   # - neofetch
-  - neovim
   # - npm
+  # - nvm
   # - obsidian
   # - pwsh
   # - python
-  - ruby
   # - rust
   # - spotify
   # - ssh
   # - sshfs
-  - system
   # - terraform
+  # - tfenv
   # - tmate
   # - zellij
-  - zoxide
+  # - git
+  # - ngrok
 
 git_user_name: "jercle"
 git_user_email: !vault |
