@@ -46,11 +46,11 @@
   failed_when: "'FAILED' in ohmyzsh_result.stderr"
 
 
-- name: "linux-aaduser | OMZ | Copy .oh-my-zsh dir"
-  become: true
-  ansible.builtin.copy:
-    src: "~/.oh-my-zsh"
-    dest: /etc/skel/
+# - name: "linux-aaduser | OMZ | Copy .oh-my-zsh dir"
+#   become: true
+#   ansible.builtin.copy:
+#     src: "~/.oh-my-zsh"
+#     dest: /etc/skel/
 
 
 - name: "linux-aaduser | Check zsh-autosuggestions plugin dir exist"
