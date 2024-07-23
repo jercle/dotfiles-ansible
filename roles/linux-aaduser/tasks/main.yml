@@ -133,6 +133,40 @@
     state: link
 
 
+- name: "ZSH | OMZ | Copy main config file"
+  become: true
+  ansible.builtin.copy:
+    src: "{{ role_path }}/files/.zshrc"
+    dest: /etc/skel/.zshrc
+
+
+- name: "ZSH | OMZ | Copy .profile file"
+  become: true
+  ansible.builtin.copy:
+    src: "{{ role_path }}/files/.profile"
+    dest: /etc/skel/.profile
+
+
+- name: "ZSH | OMZ | Copy fzf.bash file"
+  become: true
+  ansible.builtin.copy:
+    src: "{{ role_path }}/files/.fzf.bash"
+    dest: /etc/skel/.fzf.bash
+
+
+- name: "ZSH | OMZ | Copy fzf.bash file"
+  become: true
+  ansible.builtin.copy:
+    src: "{{ role_path }}/files/.fzf.zsh"
+    dest: /etc/skel/.fzf.zsh
+
+
+- name: "ZSH | OMZ | Copy fzf.bash file"
+  become: true
+  ansible.builtin.copy:
+    src: "{{ role_path }}/files/.bashrc"
+    dest: /etc/skel/.bashrc
+
 
 - name: "ZSH | OMZ | Create zshrc/oh-my-zsh.sh"
   become: true
