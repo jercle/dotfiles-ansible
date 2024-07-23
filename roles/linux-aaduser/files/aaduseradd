@@ -29,7 +29,7 @@ SHELL=/home/linuxbrew/.linuxbrew/bin/zsh
 # The SKEL variable specifies the directory containing "skeletal" user
 # files; in other words, files such as a sample .profile that will be
 # copied to the new user's home directory when it is created.
- SKEL=/etc/skel
+SKEL=/etc/skel
 #
 # Defines whether the mail spool should be created while
 # creating the account

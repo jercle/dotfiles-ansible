@@ -19,8 +19,8 @@
 - name: 'Configure aaduseradd for Linux AD Login Extension'
   become: true
   ansible.builtin.copy:
-    src: "{{ role_path }}/files/useradd"
-    dest: /etc/useradd
+    src: "{{ role_path }}/files/aaduseradd"
+    dest: /etc/default/aaduseradd
 
 
 - name: "ZSH | Check Oh My Zsh dir exists"
