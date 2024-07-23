@@ -1,31 +1,32 @@
 # ansible_python_interpreter: /opt/homebrew/bin/python3
 
 default_roles:
-  - azurecli
-  - btop
+  # - azurecli
+  # - btop
   - checkov
-  - docker
-  - fonts
-  - fzf
-  - gh
-  - gnu-tar
-  - go
-  - jq
-  - lazygit
-  - lsd
-  - ncdu
-  - neovim
-  - packer
-  - ripgrep
-  - ruby
-  - system
-  - tig
-  - tldr
-  - tmux
-  - tofuenv
-  - trivy
-  - zoxide
-  - zsh
+  # - docker
+  # - fonts
+  # - fzf
+  # - gh
+  # - gnu-tar
+  # - go
+  # - jq
+  # - lazygit
+  # - lsd
+  # - ncdu
+  # - neovim
+  # - packer
+  # - ripgrep
+  # - ruby
+  # - system
+  # - tig
+  # - tldr
+  # - tmux
+  # - tofuenv
+  # - trivy
+  # - zoxide
+  # - zsh
+
   # - 1password
   # - alacritty
   # - asciiquarium
