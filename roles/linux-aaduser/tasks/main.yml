@@ -173,7 +173,7 @@
   become: true
   ansible.builtin.copy:
     src: "~/.oh-my-zsh"
-    dest: /etc/skel/.oh-my-zsh
+    dest: /etc/skel/
 
 
 - name: "linux-aaduser | OMZ | Create zshrc/oh-my-zsh.sh"
