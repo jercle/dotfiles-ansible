@@ -40,6 +40,8 @@
 - name: "linux-aaduser | Run Oh My Zsh installation script" # noqa: latest
   when: not zsh_omz_dir.stat.exists
   command: sh /tmp/install_ohmyzsh.sh --unattended
+  environment:
+    ZSH: /etc/skel/.oh-my-zsh
   register: ohmyzsh_result
   failed_when: "'FAILED' in ohmyzsh_result.stderr"
 
