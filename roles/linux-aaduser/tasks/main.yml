@@ -154,7 +154,7 @@
     dest: /etc/skel/.fzf.bash
 
 
-- name: "linux-aaduser | OMZ | Copy fzf.bash file"
+- name: "linux-aaduser | OMZ | Copy fzf.zsh file"
   become: true
   ansible.builtin.copy:
     src: "{{ role_path }}/files/.fzf.zsh"
