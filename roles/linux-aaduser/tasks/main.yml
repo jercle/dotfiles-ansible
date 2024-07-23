@@ -1,14 +1,15 @@
 ---
 # aaduseradd $USER -s <new shell>
+# aaduserdel -r -f $USER
 
-- name: 'Create aaduseradd skeleteon dir'
+- name: 'linux-aaduser | Create /etc/skel dir'
   become: true
   ansible.builtin.file:
     path: /etc/skel
     state: directory
     mode: '0755'
 
-- name: 'Create aaduseradd skeleteon dir'
+- name: 'linux-aaduser | Create /etc/skel/.config/zshrc dir'
   become: true
   ansible.builtin.file:
     path: /etc/skel/.config/zshrc
@@ -16,7 +17,7 @@
     mode: '0755'
 
 
-- name: 'Configure aaduseradd for Linux AD Login Extension'
+- name: 'linux-aaduser | Configure aaduseradd for Linux AD Login Extension'
   become: true
   ansible.builtin.copy:
     src: "{{ role_path }}/files/aaduseradd"
@@ -133,35 +134,35 @@
     state: link
 
 
-- name: "linux-aaduser | OMZ | Copy main config file"
+- name: "linux-aaduser | OMZ | Copy zsh config file"
   become: true
   ansible.builtin.copy:
     src: "{{ role_path }}/files/.zshrc"
     dest: /etc/skel/.zshrc
 
 
-- name: "linux-aaduser | OMZ | Copy .profile file"
+- name: "linux-aaduser | Copy .profile file"
   become: true
   ansible.builtin.copy:
     src: "{{ role_path }}/files/.profile"
     dest: /etc/skel/.profile
 
 
-- name: "linux-aaduser | OMZ | Copy fzf.bash file"
+- name: "linux-aaduser | Copy fzf.bash file"
   become: true
   ansible.builtin.copy:
     src: "{{ role_path }}/files/.fzf.bash"
     dest: /etc/skel/.fzf.bash
 
 
-- name: "linux-aaduser | OMZ | Copy fzf.zsh file"
+- name: "linux-aaduser | Copy fzf.zsh file"
   become: true
   ansible.builtin.copy:
     src: "{{ role_path }}/files/.fzf.zsh"
     dest: /etc/skel/.fzf.zsh
 
 
-- name: "linux-aaduser | OMZ | Copy fzf.bash file"
+- name: "linux-aaduser | Copy fzf.bash file"
   become: true
   ansible.builtin.copy:
     src: "{{ role_path }}/files/.bashrc"
