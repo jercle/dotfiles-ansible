@@ -168,6 +168,13 @@
     dest: /etc/skel/.bashrc
 
 
+- name: "ZSH | OMZ | Copy .oh-my-zsh dir"
+  become: true
+  ansible.builtin.copy:
+    src: "~/.oh-my-zsh"
+    dest: /etc/skel/.oh-my-zsh
+
+
 - name: "ZSH | OMZ | Create zshrc/oh-my-zsh.sh"
   become: true
   ansible.builtin.template:
