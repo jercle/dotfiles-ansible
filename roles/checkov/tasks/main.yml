@@ -2,7 +2,7 @@
 - name: "checkov | Install"
   community.general.homebrew:
     name: checkov
-    state: present
+    state: absent
 
 
 # - name: "checkov | Checking for Distribution Config: {{ ansible_distribution }}"

@@ -44,6 +44,7 @@
 
 - name: "ZSH | Install zsh-autosuggestions plugin" # noqa: latest
   when: not zsh_auto_sugg_dir.stat.exists
+  become: true
   ansible.builtin.git:
     repo: https://github.com/zsh-users/zsh-autosuggestions
     dest: /etc/skel/.oh-my-zsh/custom/plugins/zsh-autosuggestions
@@ -58,6 +59,7 @@
 
 - name: "ZSH | Install zsh-completions plugin" # noqa: latest
   when: not zsh_completions_dir.stat.exists
+  become: true
   ansible.builtin.git:
     repo: https://github.com/zsh-users/zsh-completions
     dest: /etc/skel/.oh-my-zsh/custom/plugins/zsh-completions
@@ -94,6 +96,7 @@
 
 - name: "ZSH | Install zsh-history-substring-search plugin # noqa: latest"
   when: not zsh_hist_search_dir.stat.exists
+  become: true
   ansible.builtin.git:
     repo: https://github.com/zsh-users/zsh-history-substring-search
     dest: /etc/skel/.oh-my-zsh/custom/plugins/zsh-history-substring-search
@@ -107,6 +110,7 @@
 
 - name: "ZSH | Install Spaceship Prompt" # noqa: latest
   when: not spaceship_prompt_dir.stat.exists
+  become: true
   ansible.builtin.git:
     repo: https://github.com/spaceship-prompt/spaceship-prompt.git
     dest: /etc/skel/.oh-my-zsh/custom/themes/spaceship-prompt
@@ -115,6 +119,7 @@
 
 - name: "ZSH | Create Spaceship symlink"
   when: not spaceship_prompt_dir.stat.exists
+  become: true
   ansible.builtin.file:
     src: /etc/skel/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme
     dest: /etc/skel/.oh-my-zsh/custom/themes/spaceship.zsh-theme
@@ -123,6 +128,7 @@
 
 
 - name: "ZSH | OMZ | Create zshrc/oh-my-zsh.sh"
+  become: true
   ansible.builtin.template:
     dest: "/etc/skel/.config/zshrc/oh-my-z.sh"
     src: oh-my-zsh.j2
@@ -130,6 +136,7 @@
 
 
 - name: "ZSH | OMZ | Create zshrc/env.sh"
+  become: true
   ansible.builtin.template:
     dest: "/etc/skel/.config/zshrc/env.sh"
     src: env.j2
