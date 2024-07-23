@@ -8,6 +8,13 @@
     state: directory
     mode: '0755'
 
+- name: 'Create aaduseradd skeleteon dir'
+  become: true
+  ansible.builtin.file:
+    path: /etc/skel/.config/zshrc
+    state: directory
+    mode: '0755'
+
 
 - name: 'Configure aaduseradd for Linux AD Login Extension'
   become: true
