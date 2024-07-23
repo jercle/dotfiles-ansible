@@ -3,6 +3,7 @@
 default_roles:
   - azurecli
   - btop
+  - checkov
   - docker
   - fonts
   - fzf

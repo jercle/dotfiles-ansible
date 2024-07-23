@@ -1,0 +1,7 @@
+---
+- name: "checkov | {{ ansible_distribution }} | Install"
+  ansible.builtin.apt:
+    name:
+      - checkov
+    state: present
+  become: true
