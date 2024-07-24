@@ -20,19 +20,19 @@
     state: directory
     mode: '0755'
 
-- name: 'linux-aaduser | Create /etc/skel/.config/zshrc dir'
-  become: true
-  ansible.builtin.file:
-    path: /etc/skel/.config/zshrc
-    state: directory
-    mode: '0755'
+# - name: 'linux-aaduser | Create /etc/skel/.config/zshrc dir'
+#   become: true
+#   ansible.builtin.file:
+#     path: /etc/skel/.config/zshrc
+#     state: directory
+#     mode: '0755'
 
 
-- name: "linux-aaduser | Copy ~/.config/zshrc dir"
+- name: "linux-aaduser | Copy etc/skel/.config/zshrc dir"
   become: true
   ansible.builtin.file:
     src: "{{ role_path }}/files/.config/zshrc"
-    dest: /etc/skel/.config
+    dest: /etc/skel/.config/
     state: hard
 
 
