@@ -1,0 +1,5 @@
+---
+- name: "gcc | Install"
+  community.general.homebrew:
+    name: gcc
+    state: present
