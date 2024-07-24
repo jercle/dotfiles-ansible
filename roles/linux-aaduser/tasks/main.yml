@@ -32,7 +32,8 @@
   become: true
   ansible.builtin.file:
     src: /etc/skel/.config/zshrc
-    dest: ~/.config/zshrc
+    dest: ~/.config/
+
 
 
 - name: 'linux-aaduser | Configure aaduseradd for Linux AD Login Extension'
