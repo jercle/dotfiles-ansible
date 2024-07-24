@@ -5,6 +5,7 @@ default_roles:
   - btop
   - checkov
   - docker
+  - fd
   - fonts
   - fzf
   - gcc

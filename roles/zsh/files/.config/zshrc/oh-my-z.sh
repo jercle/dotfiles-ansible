@@ -46,7 +46,7 @@ plugins=(
   dotenv # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/dotenv
   extract # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/extract
   fancy-ctrl-z # https://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
-  fd # https://github.com/sharkdp/fd
+  # fd # https://github.com/sharkdp/fd - removed, completion is already included when installed via package managers.
   fzf # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/fzf
   gh # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/gh
   git # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git
@@ -74,7 +74,7 @@ plugins=(
   podman # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/podman
   # python
   qrcode # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/qrcode
-  ripgrep # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ripgrep
+  # ripgrep # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ripgrep - removed, completion is already included when installed via package managers.
   rsync # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/rsync
   singlechar # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/singlechar
   sudo # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/sudo
