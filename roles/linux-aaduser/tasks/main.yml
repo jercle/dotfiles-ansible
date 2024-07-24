@@ -28,6 +28,13 @@
     mode: '0755'
 
 
+- name: "ZSH | OMZ | Copy ~/.config/zshrc dir"
+  become: true
+  ansible.builtin.file:
+    src: /etc/skel/.config/zshrc
+    dest: ~/.config/zshrc
+
+
 - name: 'linux-aaduser | Configure aaduseradd for Linux AD Login Extension'
   become: true
   ansible.builtin.copy:
@@ -177,7 +184,7 @@
     dest: /etc/skel/.fzf.zsh
 
 
-- name: "linux-aaduser | Copy fzf.bash file"
+- name: "linux-aaduser | Copy .bashrc file"
   become: true
   ansible.builtin.copy:
     src: "{{ role_path }}/files/.bashrc"
