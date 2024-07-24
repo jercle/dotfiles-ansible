@@ -1,8 +1,9 @@
 ---
 - name: "tldr | {{ ansible_distribution }} | Install"
+  become: true
   ansible.builtin.apt:
     name:
-      - privoxy
+      - tldr
     state: present
 
 # ---
