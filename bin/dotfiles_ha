@@ -4,7 +4,7 @@ exec 5> >(logger -t $0)
 BASH_XTRACEFD="5"
 PS4='$LINENO: '
 set -x
-
+set -v
 
 # color codes
 RESTORE='\033[0m'
