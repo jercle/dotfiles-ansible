@@ -58,150 +58,144 @@
   failed_when: "'FAILED' in ohmyzsh_result.stderr"
 
 
-# - name: "linux-aaduser | OMZ | Copy .oh-my-zsh dir"
-#   become: true
-#   ansible.builtin.copy:
-#     src: "~/.oh-my-zsh"
-#     dest: /etc/skel/
+
+- name: "linux-aaduser | Check zsh-autosuggestions plugin dir exist"
+  stat:
+    path: /etc/skel/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+  register: zsh_auto_sugg_dir
 
 
-# - name: "linux-aaduser | Check zsh-autosuggestions plugin dir exist"
+- name: "linux-aaduser | Install zsh-autosuggestions plugin" # noqa: latest
+  when: not zsh_auto_sugg_dir.stat.exists
+  become: true
+  ansible.builtin.git:
+    repo: https://github.com/zsh-users/zsh-autosuggestions
+    dest: /etc/skel/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+    depth: 1
+
+
+- name: "linux-aaduser | Check zsh-completions plugin dir exist"
+  stat:
+    path: /etc/skel/.oh-my-zsh/custom/plugins/zsh-completions
+  register: zsh_completions_dir
+
+
+- name: "linux-aaduser | Install zsh-completions plugin" # noqa: latest
+  when: not zsh_completions_dir.stat.exists
+  become: true
+  ansible.builtin.git:
+    repo: https://github.com/zsh-users/zsh-completions
+    dest: /etc/skel/.oh-my-zsh/custom/plugins/zsh-completions
+    depth: 1
+
+
+# - name: "linux-aaduser | Check zsh-syntax-highlighting plugin dir exist"
 #   stat:
-#     path: /etc/skel/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-#   register: zsh_auto_sugg_dir
-
-
-# - name: "linux-aaduser | Install zsh-autosuggestions plugin" # noqa: latest
-#   when: not zsh_auto_sugg_dir.stat.exists
-#   become: true
-#   ansible.builtin.git:
-#     repo: https://github.com/zsh-users/zsh-autosuggestions
-#     dest: /etc/skel/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-#     depth: 1
-
-
-# - name: "linux-aaduser | Check zsh-completions plugin dir exist"
-#   stat:
-#     path: /etc/skel/.oh-my-zsh/custom/plugins/zsh-completions
-#   register: zsh_completions_dir
-
-
-# - name: "linux-aaduser | Install zsh-completions plugin" # noqa: latest
-#   when: not zsh_completions_dir.stat.exists
-#   become: true
-#   ansible.builtin.git:
-#     repo: https://github.com/zsh-users/zsh-completions
-#     dest: /etc/skel/.oh-my-zsh/custom/plugins/zsh-completions
-#     depth: 1
-
-
-# # - name: "linux-aaduser | Check zsh-syntax-highlighting plugin dir exist"
-# #   stat:
-# #     path: /etc/skel/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-# #   register: zsh_syntax_hl_dir
-
-
-# # - name: "linux-aaduser | Install zsh-syntax-highlighting plugin" # noqa: latest
-# #   when: not zsh_syntax_hl_dir.stat.exists
-# #   ansible.builtin.git:
-# #     repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
-# #     dest: /etc/skel/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-# #     depth: 1
+#     path: /etc/skel/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+#   register: zsh_syntax_hl_dir
 
 
 # - name: "linux-aaduser | Install zsh-syntax-highlighting plugin" # noqa: latest
-#   community.general.homebrew:
-#     name: zsh-syntax-highlighting
-#     state: present
-
-
-
-
-# - name: "linux-aaduser | Check zsh-history-substring-search plugin dir exist"
-#   stat:
-#     path: /etc/skel/.oh-my-zsh/custom/plugins/zsh-history-substring-search
-#   register: zsh_hist_search_dir
-
-
-# - name: "linux-aaduser | Install zsh-history-substring-search plugin # noqa: latest"
-#   when: not zsh_hist_search_dir.stat.exists
-#   become: true
+#   when: not zsh_syntax_hl_dir.stat.exists
 #   ansible.builtin.git:
-#     repo: https://github.com/zsh-users/zsh-history-substring-search
-#     dest: /etc/skel/.oh-my-zsh/custom/plugins/zsh-history-substring-search
+#     repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+#     dest: /etc/skel/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 #     depth: 1
 
 
-# - name: "linux-aaduser | Check Spaceship Prompt exist"
-#   stat:
-#     path: /etc/skel/.oh-my-zsh/custom/themes/spaceship-prompt
-#   register: spaceship_prompt_dir
-
-# - name: "linux-aaduser | Install Spaceship Prompt" # noqa: latest
-#   when: not spaceship_prompt_dir.stat.exists
-#   become: true
-#   ansible.builtin.git:
-#     repo: https://github.com/spaceship-prompt/spaceship-prompt.git
-#     dest: /etc/skel/.oh-my-zsh/custom/themes/spaceship-prompt
-#     depth: 1
-
-
-# - name: "linux-aaduser | Create Spaceship symlink"
-#   when: not spaceship_prompt_dir.stat.exists
-#   become: true
-#   ansible.builtin.file:
-#     src: /etc/skel/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme
-#     dest: /etc/skel/.oh-my-zsh/custom/themes/spaceship.zsh-theme
-#     state: link
-
-
-# - name: "linux-aaduser | OMZ | Copy zsh config file"
-#   become: true
-#   ansible.builtin.copy:
-#     src: "{{ role_path }}/files/.zshrc"
-#     dest: /etc/skel/.zshrc
-
-
-# - name: "linux-aaduser | Copy .profile file"
-#   become: true
-#   ansible.builtin.copy:
-#     src: "{{ role_path }}/files/.profile"
-#     dest: /etc/skel/.profile
-
-
-# - name: "linux-aaduser | Copy fzf.bash file"
-#   become: true
-#   ansible.builtin.copy:
-#     src: "{{ role_path }}/files/.fzf.bash"
-#     dest: /etc/skel/.fzf.bash
-
-
-# - name: "linux-aaduser | Copy fzf.zsh file"
-#   become: true
-#   ansible.builtin.copy:
-#     src: "{{ role_path }}/files/.fzf.zsh"
-#     dest: /etc/skel/.fzf.zsh
-
-
-# - name: "linux-aaduser | Copy fzf.bash file"
-#   become: true
-#   ansible.builtin.copy:
-#     src: "{{ role_path }}/files/.bashrc"
-#     dest: /etc/skel/.bashrc
+- name: "linux-aaduser | Install zsh-syntax-highlighting plugin" # noqa: latest
+  community.general.homebrew:
+    name: zsh-syntax-highlighting
+    state: present
 
 
 
-# - name: "linux-aaduser | OMZ | Create zshrc/oh-my-zsh.sh"
-#   become: true
-#   ansible.builtin.template:
-#     dest: "/etc/skel/.config/zshrc/oh-my-z.sh"
-#     src: oh-my-zsh.j2
-#     mode: "0644"
+
+- name: "linux-aaduser | Check zsh-history-substring-search plugin dir exist"
+  stat:
+    path: /etc/skel/.oh-my-zsh/custom/plugins/zsh-history-substring-search
+  register: zsh_hist_search_dir
 
 
-# - name: "linux-aaduser | OMZ | Create zshrc/env.sh"
-#   become: true
-#   ansible.builtin.template:
-#     dest: "/etc/skel/.config/zshrc/env.sh"
-#     src: env.j2
-#     mode: "0644"
+- name: "linux-aaduser | Install zsh-history-substring-search plugin # noqa: latest"
+  when: not zsh_hist_search_dir.stat.exists
+  become: true
+  ansible.builtin.git:
+    repo: https://github.com/zsh-users/zsh-history-substring-search
+    dest: /etc/skel/.oh-my-zsh/custom/plugins/zsh-history-substring-search
+    depth: 1
+
+
+- name: "linux-aaduser | Check Spaceship Prompt exist"
+  stat:
+    path: /etc/skel/.oh-my-zsh/custom/themes/spaceship-prompt
+  register: spaceship_prompt_dir
+
+- name: "linux-aaduser | Install Spaceship Prompt" # noqa: latest
+  when: not spaceship_prompt_dir.stat.exists
+  become: true
+  ansible.builtin.git:
+    repo: https://github.com/spaceship-prompt/spaceship-prompt.git
+    dest: /etc/skel/.oh-my-zsh/custom/themes/spaceship-prompt
+    depth: 1
+
+
+- name: "linux-aaduser | Create Spaceship symlink"
+  when: not spaceship_prompt_dir.stat.exists
+  become: true
+  ansible.builtin.file:
+    src: /etc/skel/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme
+    dest: /etc/skel/.oh-my-zsh/custom/themes/spaceship.zsh-theme
+    state: link
+
+
+- name: "linux-aaduser | OMZ | Copy zsh config file"
+  become: true
+  ansible.builtin.copy:
+    src: "{{ role_path }}/files/.zshrc"
+    dest: /etc/skel/.zshrc
+
+
+- name: "linux-aaduser | Copy .profile file"
+  become: true
+  ansible.builtin.copy:
+    src: "{{ role_path }}/files/.profile"
+    dest: /etc/skel/.profile
+
+
+- name: "linux-aaduser | Copy fzf.bash file"
+  become: true
+  ansible.builtin.copy:
+    src: "{{ role_path }}/files/.fzf.bash"
+    dest: /etc/skel/.fzf.bash
+
+
+- name: "linux-aaduser | Copy fzf.zsh file"
+  become: true
+  ansible.builtin.copy:
+    src: "{{ role_path }}/files/.fzf.zsh"
+    dest: /etc/skel/.fzf.zsh
+
+
+- name: "linux-aaduser | Copy fzf.bash file"
+  become: true
+  ansible.builtin.copy:
+    src: "{{ role_path }}/files/.bashrc"
+    dest: /etc/skel/.bashrc
+
+
+
+- name: "linux-aaduser | OMZ | Create zshrc/oh-my-zsh.sh"
+  become: true
+  ansible.builtin.template:
+    dest: "/etc/skel/.config/zshrc/oh-my-z.sh"
+    src: oh-my-zsh.j2
+    mode: "0644"
+
+
+- name: "linux-aaduser | OMZ | Create zshrc/env.sh"
+  become: true
+  ansible.builtin.template:
+    dest: "/etc/skel/.config/zshrc/env.sh"
+    src: env.j2
+    mode: "0644"
