@@ -1,5 +1,11 @@
 #!/bin/bash
 
+exec 5> >(logger -t $0)
+BASH_XTRACEFD="5"
+PS4='$LINENO: '
+set -x
+
+
 # color codes
 RESTORE='\033[0m'
 NC='\033[0m'
