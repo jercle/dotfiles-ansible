@@ -1,9 +1,9 @@
 ---
 - name: "tldr | {{ ansible_distribution }} | Install"
-  community.general.homebrew:
-    name: tldr
+  ansible.builtin.apt:
+    name:
+      - privoxy
     state: present
-
 
 # ---
 # # - name: "Tldr | Checking for Distribution Config: {{ ansible_distribution }}"
