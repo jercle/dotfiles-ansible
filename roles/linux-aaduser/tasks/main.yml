@@ -2,10 +2,16 @@
 # aaduseradd $USER -s <new shell>
 # aaduserdel -r -f $USER
 
-# - name: "ZSH | Install"
-#   community.general.homebrew:
-#     name: zsh
-#     state: present
+- name: "ZSH | Install"
+  ansible.builtin.apt:
+    name:
+      - zsh
+    state: present
+  become: true
+  # community.general.homebrew:
+  #   name: zsh
+  #   state: present
+
 
 - name: 'linux-aaduser | Create /etc/skel dir'
   become: true
