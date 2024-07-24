@@ -2,10 +2,10 @@
 # aaduseradd $USER -s <new shell>
 # aaduserdel -r -f $USER
 
-- name: "ZSH | Install"
-  community.general.homebrew:
-    name: zsh
-    state: present
+# - name: "ZSH | Install"
+#   community.general.homebrew:
+#     name: zsh
+#     state: present
 
 - name: 'linux-aaduser | Create /etc/skel dir'
   become: true
