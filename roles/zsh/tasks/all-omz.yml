@@ -104,10 +104,11 @@
     state: link
 
 
-- name: "ZSH | OMZ | Create ~/.config/zshrc dir"
+- name: "ZSH | OMZ | Copy ~/.config/zshrc dir"
   ansible.builtin.file:
     src: "{{ role_path }}/files/.config/zshrc"
-    dest: ~/.config/zshrc
+    dest: ~/.config/
+    state: hard
 
 
 - name: "ZSH | OMZ | Copy main config file"
@@ -116,11 +117,6 @@
     dest: ~/.zshrc
 
 
-- name: "ZSH | OMZ | Copy config files"
-  ansible.builtin.copy:
-    src: "{{ role_path }}/files/.config/zshrc"
-    dest: ~/.config/
-    state: hard
 
 
 - name: "ZSH | OMZ | Create zshrc/oh-my-zsh.sh"
