@@ -40,7 +40,6 @@
   ansible.builtin.copy:
     src: "{{ role_path }}/files/aaduseradd"
     dest: /etc/default/aaduseradd
-    state: hard
 
 
 - name: "linux-aaduser | Check Oh My Zsh dir exists"
