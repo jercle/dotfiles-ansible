@@ -29,6 +29,7 @@
 
 
 - name: "linux-aaduser | Copy etc/skel/.config/zshrc dir"
+  become: true
   ansible.builtin.copy:
     src: "{{ role_path }}/files/.config/zshrc"
     dest: /etc/skel/.config/zshrc
