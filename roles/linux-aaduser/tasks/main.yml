@@ -28,7 +28,7 @@
     mode: '0755'
 
 
-- name: "ZSH | OMZ | Copy ~/.config/zshrc dir"
+- name: "linux-aaduser | Copy ~/.config/zshrc dir"
   become: true
   ansible.builtin.file:
     src: /etc/skel/.config/zshrc
