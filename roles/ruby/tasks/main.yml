@@ -5,7 +5,6 @@
     state: present
 
 - name: 'Ruby | Create ~/.config/gem dir'
-  become: true
   ansible.builtin.file:
     path: ~/.config/gem
     state: directory
