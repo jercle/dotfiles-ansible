@@ -70,6 +70,7 @@ plugins=(
   node # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/node
   nodenv # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/nodenv
   npm # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/npm
+  opentofu # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/opentofu
   podman # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/podman
   # python
   qrcode # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/qrcode
