@@ -4,6 +4,13 @@
     name: ruby
     state: present
 
+- name: 'Ruby | Create ~/.config/gem dir'
+  become: true
+  ansible.builtin.file:
+    path: ~/.config/gem
+    state: directory
+    mode: "0644"
+
 - name: "Ruby | Copy gemrc"
   when: envType == "ha"
   ansible.builtin.copy:

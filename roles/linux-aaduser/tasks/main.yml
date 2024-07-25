@@ -208,3 +208,19 @@
     dest: "/etc/skel/.config/zshrc/env.sh"
     src: env.j2
     mode: "0644"
+
+
+- name: 'linux-aaduser | Create etc/skel/.config/gem dir'
+  become: true
+  ansible.builtin.file:
+    path: ~/.config/gem
+    state: directory
+    mode: "0644"
+
+
+- name: 'linux-aaduser | copy gemrc file'
+  become: true
+  ansible.builtin.file:
+    path: ~/.config/gem/gemrc
+    state: directory
+    mode: "0644"
