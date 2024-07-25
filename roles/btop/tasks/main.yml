@@ -1,9 +1,9 @@
 ---
-- name: "System | Checking for Distribution Config: {{ ansible_distribution }}"
+- name: "btop | Checking for Distribution Config: {{ ansible_distribution }}"
   ansible.builtin.stat:
     path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
-  register: system_distribution_config
+  register: btop_distribution_config
 
-- name: "System | Run Tasks: {{ ansible_distribution }}"
+- name: "btop | Run Tasks: {{ ansible_distribution }}"
   ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
-  when: system_distribution_config.stat.exists
+  when: btop_distribution_config.stat.exists
