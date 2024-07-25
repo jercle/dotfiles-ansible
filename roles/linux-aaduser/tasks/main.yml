@@ -213,14 +213,14 @@
 - name: 'linux-aaduser | Create etc/skel/.config/gem dir'
   become: true
   ansible.builtin.file:
-    path: ~/.config/gem
+    path: /etc/skel/.config/gem
     state: directory
     mode: "0644"
 
 
 - name: 'linux-aaduser | copy gemrc file'
   become: true
-  ansible.builtin.file:
-    path: ~/.config/gem/gemrc
-    state: directory
-    mode: "0644"
+  when: envType == "ha"
+  ansible.builtin.copy:
+    src: "{{ role_path }}/files/gemrc"
+    dest: /etc/skel/.config/gem/gemrc
