@@ -221,9 +221,9 @@ fi
 
 _task "Running playbook"; _task_done
 if [[ -f $VAULT_SECRET ]]; then
-  ansible-playbook --vault-password-file $VAULT_SECRET "$DOTFILES_DIR/main-wsl.yml" "$@"
+   ANSIBLE_ENVIRONMENT_TYPE="ha" ansible-playbook --vault-password-file $VAULT_SECRET "$DOTFILES_DIR/main-wsl.yml" "$@"
 else
-  ansible-playbook "$DOTFILES_DIR/main-wsl.yml" "$@"
+  ANSIBLE_ENVIRONMENT_TYPE="ha" ansible-playbook "$DOTFILES_DIR/main-wsl.yml" "$@"
 fi
 
 popd 2>&1 > /dev/null
