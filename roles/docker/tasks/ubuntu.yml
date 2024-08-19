@@ -18,6 +18,7 @@
   ansible.builtin.apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
     keyring: /etc/apt/keyrings/docker.gpg
+    validate_certs: false
     state: present
   become: true
 
