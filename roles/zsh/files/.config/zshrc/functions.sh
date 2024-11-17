@@ -1,4 +1,4 @@
-grg() {
+grgg() {
   if [ -z "$1" ]; then
     if [ ! -f ./main.go ]; then
       echo "./main.go not found!"
