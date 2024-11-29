@@ -11,7 +11,7 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -22,15 +22,16 @@ COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/highlighters
 source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-ZVM_CURSOR_STYLE_ENABLED=false
+# ZVM_CURSOR_STYLE_ENABLED=false
+
 
 plugins=(
   1password
   aliases
   azure
   brew
-  charm
-  chucknorris
+  # charm
+  # chucknorris
   colored-man-pages
   colorize # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/colorize
   command-not-found
@@ -54,19 +55,19 @@ plugins=(
   gitignore # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/gitignore
   golang # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/golang
   grc # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/grc
-  helm # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/helm
+  # helm # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/helm
   history # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/history
-  httpie # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/httpie
+  # httpie # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/httpie
   # iterm2 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/iterm2
   jira # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/jira
-  kind # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/kind
-  kubectl # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/kubectl
-  kubectx # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/kubectx
+  # kind # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/kind
+  # kubectl # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/kubectl
+  # kubectx # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/kubectx
   # macos # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/macos
   magic-enter # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/magic-enter
   man # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/man
   # microk8s # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/microk8s
-  minikube # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/minikube
+  # minikube # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/minikube
   node # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/node
   nodenv # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/nodenv
   npm # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/npm
@@ -85,7 +86,7 @@ plugins=(
   # thefuck # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/thefuck
   themes # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/themes
   tig # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/tig
-  tmux # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/tmux
+  # tmux # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/tmux
   ubuntu # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ubuntu
   vscode # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/vscode
   wd
@@ -98,5 +99,5 @@ plugins=(
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='mvim'
+  export EDITOR='nvim'
 fi
