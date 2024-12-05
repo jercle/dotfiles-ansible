@@ -89,10 +89,8 @@ gobld() {
   if [ -z "$1" ]; then
     echo "Provide name of binary to move to $GOPATH"
   else
-    result=${PWD##*/}
-    result=${result:-/}
-    go build
-    mv $result $GOPATH/bin/$1
+    go build -o $1
+    mv $1 $GOPATH/bin/$1
   fi
 }
 
