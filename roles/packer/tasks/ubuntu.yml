@@ -1,5 +1,10 @@
 ---
+- name: "packer | Tap"
+  community.general.homebrew_tap:
+    name: hashicorp/tap
+    state: present
+
 - name: "packer | Install"
   community.general.homebrew:
-    name: packer
+    name: hashicorp/tap/packer
     state: present

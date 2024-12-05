@@ -14,7 +14,7 @@ default_roles:
   - go
   - jq
   - lazygit
-  - linux-aaduser
+  # - linux-aaduser
   - lsd
   - ncdu
   - neovim
@@ -44,7 +44,7 @@ default_roles:
   # - nala
   # - neofetch
   # - npm
-  # - nvm
+  - nvm
   # - obsidian
   # - pwsh
   # - python
@@ -54,10 +54,10 @@ default_roles:
   # - sshfs
   # - terraform
   # - tfenv
-  # - tmate
-  # - zellij
-  # - git
-  # - ngrok
+  - tmate
+  - zellij
+  - git
+  - ngrok
 
 git_user_name: "jercle"
 git_user_email: !vault |
