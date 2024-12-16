@@ -90,7 +90,9 @@ gobld() {
     echo "Provide name of binary to move to $GOPATH"
   else
     go build -o $1
-    mv $1 $GOPATH/bin/$1
+    yes | mv $1 $GOPATH/bin/$1
+    echo ""
+    echo "Saved to $GOPATH/bin/$1"
   fi
 }
 
