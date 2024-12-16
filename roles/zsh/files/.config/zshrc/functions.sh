@@ -1,3 +1,20 @@
+grgg() {
+  if [ -z "$1" ]; then
+    if [ ! -f ./main.go ]; then
+      echo "./main.go not found!"
+    else
+    go run main.go
+    fi
+  else
+    if [ ! -f ./main-$1.go ]; then
+      echo "main-$1.go not found!"
+    else
+      go run "main-$1.go"
+    fi
+  fi
+}
+
+
 fex() {
   if [ -z "$1" ]; then
     if [ ! -f ~/.env ]; then
@@ -65,6 +82,16 @@ fshow() {
                 | less -R') << 'FZF-EOF'
             {}
 FZF-EOF"
+}
+
+
+gobld() {
+  if [ -z "$1" ]; then
+    echo "Provide name of binary to move to $GOPATH"
+  else
+    go build -o $1
+    mv $1 $GOPATH/bin/$1
+  fi
 }
 
 
