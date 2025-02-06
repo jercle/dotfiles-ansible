@@ -103,6 +103,10 @@ gacp() {
   git push
 }
 
+gac() {
+  git add .
+  git commit -m "$1"
+}
 
 mans() {
   man -k . |
